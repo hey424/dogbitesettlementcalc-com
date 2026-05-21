@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Dog Bite Settlement Calculator | dogbitesettlementcalc.com';
+const description = 'Estimate potential settlement value for a dog bite injury claim. Covers medical costs, lost wages, pain and suffering, and strict liability vs. negligence states. Free, informational.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Dog Bite Settlement Calculator</h1>
+  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
+  <p>Dog bite claims are among the most common personal injury cases in the United States. More than 4.5 million people are bitten annually; about 800,000 require medical attention. Settlement value depends on injury severity, medical costs, liability theory (strict liability vs. negligence), whether the victim provoked the dog, and available insurance coverage. This calculator estimates potential recovery.</p>
+  <h2>Run the estimate</h2>
+  <form id="calc" novalidate>
+    <label for="medical-costs">Medical costs (USD — ER, stitches, surgery, plastic surgery, therapy)</label>
+    <input id="medical-costs" type="number" value="5000" min="0" />
+    <label for="lost-wages">Lost wages (USD)</label>
+    <input id="lost-wages" type="number" value="1000" min="0" />
+    <label for="severity">Injury severity</label>
+    <select id="severity">
+      <option value="minor">Minor — puncture wounds, no surgery needed</option>
+      <option value="moderate">Moderate — lacerations requiring stitches, possible scarring</option>
+      <option value="severe">Severe — surgery, significant scarring or disfigurement</option>
+      <option value="catastrophic">Catastrophic — loss of function, permanent disability, facial injury</option>
+    </select>
+    <label for="liability">Liability regime in your state</label>
+    <select id="liability">
+      <option value="strict">Strict liability (dog owner liable regardless of prior knowledge)</option>
+      <option value="one-bite">One-bite rule / negligence (must show owner knew dog was dangerous)</option>
+    </select>
+    <label for="provocation">Did victim provoke the dog?</label>
+    <select id="provocation">
+      <option value="no">No provocation</option>
+      <option value="minor">Minor provocation (may reduce recovery 10-25%)</option>
+      <option value="significant">Significant provocation (may bar or heavily reduce recovery)</option>
+    </select>
+    <button type="submit">Estimate settlement</button>
+  </form>
+  <p id="result" aria-live="polite"></p>
+  <h2>How dog bite claims work</h2>
+  <p>Over 35 states have strict liability dog bite statutes: the owner is liable for bite injuries regardless of whether they knew the dog was dangerous. The remaining states follow the &ldquo;one-bite rule&rdquo; or negligence, requiring the plaintiff to show the owner knew or should have known the dog posed a risk.</p>
+  <p>Most settlements are paid by the dog owner&rsquo;s homeowners or renters insurance. Average policy limits are $100,000&ndash;$300,000 per occurrence. Very severe injuries often exceed policy limits, requiring direct litigation against the owner.</p>
+  <h2>Where to learn more</h2>
+  <p>See <a href="/guides/how-dog-bite-claims-work">how dog bite claims work</a>, <a href="/guides/dog-bite-liability-by-state">dog bite liability by state</a>, <a href="/guides/what-to-do-after-dog-bite">what to do after a dog bite</a>, and <a href="/guides/dog-bite-misconceptions">common dog bite misconceptions</a>.</p>
+  <script>
+    document.getElementById('calc').addEventListener('submit', e => {
+      e.preventDefault();
+      const medCosts = parseFloat(document.getElementById('medical-costs').value)||0;
+      const lostWages = parseFloat(document.getElementById('lost-wages').value)||0;
+      const severity = document.getElementById('severity').value;
+      const liability = document.getElementById('liability').value;
+      const provocation = document.getElementById('provocation').value;
+      const painMultiplier = {minor:2,moderate:3.5,severe:5,catastrophic:8}[severity];
+      const liabilityAdj = liability==='one-bite' ? 0.6 : 1.0;
+      const provAdj = provocation==='no' ? 1.0 : provocation==='minor' ? 0.8 : 0.3;
+      const economic = medCosts + lostWages;
+      const nonEconomic = (medCosts * painMultiplier) + (lostWages * 1.5);
+      const total = (economic + nonEconomic) * liabilityAdj * provAdj;
+      const fmt = n=>'$'+Math.round(n).toLocaleString();
+      if (provocation==='significant') {
+        document.getElementById('result').innerHTML = `<strong>Estimated range: ${fmt(total*0.5)} &ndash; ${fmt(total*1.3)}</strong><br>Significant provocation reduces recovery substantially. Some states bar recovery entirely.<br><em>Consult a personal injury attorney for case-specific analysis.</em>`;
+      } else {
+        document.getElementById('result').innerHTML =
+          `<strong>Estimated range: ${fmt(total*0.6)} &ndash; ${fmt(total*1.4)}</strong><br>Economic damages: ${fmt(economic)} &bull; Pain &amp; suffering: ${fmt(nonEconomic*liabilityAdj*provAdj - economic*liabilityAdj*provAdj + economic*liabilityAdj*provAdj - economic)}<br><em>Most dog bite claims settle through homeowners insurance. Policy limits may cap recovery.</em>`;
+      }
+    });
+  </script>
+</BaseLayout>
