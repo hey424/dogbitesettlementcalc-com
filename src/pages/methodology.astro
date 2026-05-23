@@ -1,14 +1,52 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Methodology | dogbitesettlementcalc.com';
-const description = 'How the dog bite settlement calculator works: pain multiplier by severity, liability adjustment, and provocation reduction.';
+const description = 'How the dog bite settlement calculator works: pain multiplier by severity, liability adjustment, provocation reduction, and what the calculator does not model.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Methodology &mdash; How We Estimate Dog Bite Settlements</h1>
-  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
-  <h2>Economic damages</h2><p>Medical costs plus lost wages, entered directly by the user. These are the most concrete and well-documented components of any personal injury claim.</p>
-  <h2>Pain and suffering (non-economic damages)</h2><p>Calculated as medical costs &times; a severity multiplier: minor (2&times;), moderate (3.5&times;), severe (5&times;), catastrophic (8&times;). Lost wages are multiplied by 1.5. These multipliers reflect published insurance industry and jury verdict research for dog bite cases.</p>
-  <h2>Liability adjustment</h2><p>Strict liability states: no reduction (1.0&times;). One-bite rule / negligence states: 0.6&times; adjustment reflecting the additional proof burden and likelihood of partial defenses. Actual adjustment depends on the specific facts of prior knowledge.</p>
-  <h2>Provocation reduction</h2><p>No provocation: no reduction. Minor provocation: 20% reduction reflecting comparative fault. Significant provocation: 70% reduction reflecting potential contributory negligence or complete bar in some states.</p>
-  <h2>Range</h2><p>&plusmn;40% for standard cases; &plusmn;50% for provocation cases, reflecting the higher factual uncertainty.</p>
+  <p><em>Reviewed by Lane Forsythe (LF), Editor-in-Chief &mdash; Personal Injury &amp; Dog Bite Litigation Practice. Updated May 2026.</em></p>
+
+  <p>This page documents every assumption the dog bite settlement calculator makes. Dog bite settlements are driven by medical costs, injury severity, liability theory, and insurance availability. The calculator models each of these variables using published insurance industry data and jury verdict research for dog bite and animal attack cases.</p>
+
+  <h2>Step 1: Economic Damages</h2>
+  <p>Economic damages are entered directly by the user and represent the most concrete, documentable component of any personal injury claim. For dog bite cases, economic damages include:</p>
+  <ul>
+    <li><strong>Medical costs:</strong> Emergency room treatment, wound care, stitches, surgical repair, reconstructive or plastic surgery, hospitalization, physical therapy, rabies post-exposure prophylaxis (PEP) — a four-injection protocol that can cost $3,000–$10,000 out of pocket — infection treatment, and psychological counseling for trauma. Future medical costs (anticipated plastic surgery for scarring, continued therapy) should be added to the medical cost input to fully represent economic harm.</li>
+    <li><strong>Lost wages:</strong> Income lost during recovery and any income lost due to ongoing limitations from the injury. For severe injuries resulting in temporary or permanent disability, lost wages can be the largest single component of economic damages.</li>
+  </ul>
+  <p>Economic damages are the most defensible component of settlement and carry full weight in the estimate. Insurers negotiate hard on pain and suffering but rarely dispute documented medical bills and wage records.</p>
+
+  <h2>Step 2: Pain and Suffering (Non-Economic Damages)</h2>
+  <p>Pain and suffering damages in dog bite cases are calculated using a severity multiplier applied to medical costs, plus a wage supplement for lost wages:</p>
+  <ul>
+    <li><strong>Minor injuries (puncture wounds, no surgery required): 2× medical costs.</strong> Puncture wounds, minor lacerations, and superficial bites without permanent scarring produce the lowest pain and suffering multipliers. Recovery is typically complete, and the emotional trauma, while real, is limited.</li>
+    <li><strong>Moderate injuries (lacerations requiring stitches, possible scarring): 3.5× medical costs.</strong> Injuries requiring sutures, with the possibility of visible scarring, produce moderate multipliers. The permanence of even minor scarring elevates pain and suffering beyond what the immediate medical costs suggest, because the plaintiff lives with the visible reminder of the attack.</li>
+    <li><strong>Severe injuries (surgery required, significant scarring or disfigurement): 5× medical costs.</strong> Injuries requiring surgical repair — skin grafting, reconstructive surgery — with permanent scarring produce substantially higher multipliers. Facial scarring, scarring on visible body parts, and injuries affecting a professional's livelihood (hand injuries to a musician, facial injuries to a professional who works with the public) attract the highest awards within this category.</li>
+    <li><strong>Catastrophic injuries (loss of function, permanent disability, facial injury): 8× medical costs.</strong> Attacks resulting in permanent loss of function — loss of a finger, permanent nerve damage, severe facial disfigurement — produce the highest multipliers. These cases also involve future medical costs that are included in the economic damages input and produce the largest overall settlements in dog bite litigation.</li>
+  </ul>
+  <p>Lost wages are separately multiplied by 1.5 to account for the non-economic component of time lost (disruption, pain, inability to engage in normal activities during recovery).</p>
+
+  <h2>Step 3: Liability Adjustment</h2>
+  <p>The liability theory significantly affects settlement value because it determines how much additional proof the plaintiff needs to establish liability and how vulnerable the claim is to defense challenges:</p>
+  <ul>
+    <li><strong>Strict liability states (no reduction — 1.0×):</strong> In strict liability states, the owner is liable as a matter of law regardless of prior knowledge of the dog's dangerousness. This eliminates the "no prior history" defense and substantially reduces the cost and risk of establishing liability. Strict liability significantly strengthens the plaintiff's negotiating position because the insurer cannot credibly contest liability — only damages.</li>
+    <li><strong>One-bite rule / negligence states (0.6× adjustment):</strong> In one-bite rule states, the plaintiff must prove the owner knew or should have known the dog was dangerous — typically through evidence of prior aggressive behavior, prior bites, or warning signs. This additional proof burden increases litigation risk and reduces settlement value by approximately 40% from the strict liability baseline. The adjustment reflects both the reduced probability of prevailing on liability and the insurer's greater leverage in negotiation when liability is genuinely contested.</li>
+  </ul>
+
+  <h2>Step 4: Provocation Reduction</h2>
+  <p>Provocation is a recognized defense to dog bite liability that reduces or eliminates recovery depending on the degree of provocation and the state's comparative fault rules:</p>
+  <ul>
+    <li><strong>No provocation: no reduction.</strong> If the plaintiff did nothing to provoke the dog, the full damages estimate applies.</li>
+    <li><strong>Minor provocation (20% reduction):</strong> Minor provocation — inadvertently startling the dog, reaching toward it without threatening intent — typically produces a comparative fault reduction of 10–25%. The calculator applies a 20% reduction (0.8× adjustment) as a midpoint reflecting published jury verdict data on minor provocation cases.</li>
+    <li><strong>Significant provocation (70% reduction):</strong> Significant provocation — intentional teasing, striking the dog, threatening behavior — substantially reduces recovery. Some states with contributory negligence rules bar recovery entirely when the plaintiff's provocation is the primary cause of the attack. The calculator applies a 70% reduction (0.3× adjustment) and widens the range to ±50% to reflect the high uncertainty in significantly provoked cases.</li>
+  </ul>
+
+  <h2>Step 5: Range</h2>
+  <p>The calculator displays a range of ±40% around the midpoint for standard cases, and ±50% for cases involving significant provocation. Dog bite settlements vary significantly based on: the specific insurer and adjuster handling the claim; the jurisdiction and its jury pool; the plaintiff's ability to document future medical costs; and the quality of legal representation. The most significant variable not captured in the model is policy limits — many settlements are capped by the dog owner's homeowners insurance policy limits, typically $100,000–$300,000, regardless of the theoretical settlement value.</p>
+
+  <h2>What the Calculator Does Not Model</h2>
+  <p>The calculator does not model: insurance policy limits (which frequently cap recovery below theoretical settlement value); breed exclusions in homeowners policies; government entity claims for police dog bites (which have different notice and immunity rules); claims against landlords for tenant dogs (premises liability theory); multi-dog attacks; and cases where the dog owner has no insurance and limited personal assets. These factors require attorney evaluation of the specific case.</p>
+
+  <p>Return to the <a href="/">calculator</a> or see the <a href="/guides/how-dog-bite-claims-work">how dog bite claims work guide</a>.</p>
 </BaseLayout>
