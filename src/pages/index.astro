@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadCapture from '../components/LeadCapture.astro';
 const title = 'Dog Bite Settlement Calculator | dogbitesettlementcalc.com';
 const description = 'Estimate potential settlement value for a dog bite injury claim. Covers medical costs, lost wages, pain and suffering, and strict liability vs. negligence states. Free, informational.';
 ---
@@ -33,16 +34,19 @@ const description = 'Estimate potential settlement value for a dog bite injury c
     </select>
     <button type="submit">Estimate settlement</button>
   </form>
-  <p id="result" aria-live="polite"></p>
+  
+
+  <LeadCapture caseType="dog_bite" caseTypeLabel="Dog Bite" />
+<p id="result" aria-live="polite"></p>
   <h2>How dog bite claims work</h2>
   <p>Over 35 states have strict liability dog bite statutes: the owner is liable for bite injuries regardless of whether they knew the dog was dangerous. The remaining states follow the &ldquo;one-bite rule&rdquo; or negligence, requiring the plaintiff to show the owner knew or should have known the dog posed a risk. Most settlements are paid by the dog owner&rsquo;s homeowners or renters insurance — average policy limits are $100,000&ndash;$300,000 per occurrence. Very severe injuries often exceed policy limits, requiring direct litigation against the owner.</p>
-  <p>Injury severity is the single most important driver of settlement value beyond documented medical costs. Facial scarring, permanent disfigurement, and injuries resulting in loss of function produce settlements multiple times higher than similar-cost injuries that heal completely. See the <a href="/methodology">full methodology</a> for how every input maps to a settlement estimate.</p>
+  <p>Injury severity is the single most important driver of settlement value beyond documented medical costs. Facial scarring, permanent disfigurement, and injuries resulting in loss of function produce settlements multiple times higher than similar-cost injuries that heal completely. See the <a href="/methodology/">full methodology</a> for how every input maps to a settlement estimate.</p>
   <h2>Understanding the inputs</h2>
-  <p><strong>Liability regime:</strong> Use our <a href="/guides/dog-bite-liability-by-state">state liability guide</a> to determine whether your state uses strict liability or the one-bite rule. Strict liability significantly strengthens your claim because the insurer cannot contest liability — only the amount of damages.</p>
+  <p><strong>Liability regime:</strong> Use our <a href="/guides/dog-bite-liability-by-state/">state liability guide</a> to determine whether your state uses strict liability or the one-bite rule. Strict liability significantly strengthens your claim because the insurer cannot contest liability — only the amount of damages.</p>
   <p><strong>Injury severity:</strong> Include both current and anticipated future medical costs in the medical costs input. If you expect future plastic surgery or ongoing therapy, add those expected costs to your current medical bills for a more accurate estimate.</p>
   <p><strong>Provocation:</strong> Courts apply an objective standard — whether a reasonable person would consider the conduct provocative. Petting a dog, walking near it, or making routine contact is not provocation. Intentionally startling, teasing, or striking the dog may be.</p>
   <h2>Where to learn more</h2>
-  <p>See <a href="/guides/how-dog-bite-claims-work">how dog bite claims work</a>, <a href="/guides/dog-bite-liability-by-state">dog bite liability by state</a>, <a href="/guides/what-to-do-after-dog-bite">what to do after a dog bite</a>, and <a href="/guides/dog-bite-misconceptions">common dog bite misconceptions</a>. The <a href="/faq">FAQ</a> addresses insurance coverage, breed exclusions, statutes of limitations, and damages in detail.</p>
+  <p>See <a href="/guides/how-dog-bite-claims-work/">how dog bite claims work</a>, <a href="/guides/dog-bite-liability-by-state/">dog bite liability by state</a>, <a href="/guides/what-to-do-after-dog-bite/">what to do after a dog bite</a>, and <a href="/guides/dog-bite-misconceptions/">common dog bite misconceptions</a>. The <a href="/faq/">FAQ</a> addresses insurance coverage, breed exclusions, statutes of limitations, and damages in detail.</p>
   <script>
     document.getElementById('calc').addEventListener('submit', e => {
       e.preventDefault();
